@@ -28,6 +28,11 @@ namespace BankingSystem.Controllers
             return View();
         }
 
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            ViewBag.Name = "ddd";
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
