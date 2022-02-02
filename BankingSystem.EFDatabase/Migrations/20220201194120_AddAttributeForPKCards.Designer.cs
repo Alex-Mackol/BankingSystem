@@ -4,14 +4,16 @@ using BankingSystem.EFDatabase.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankingSystem.EFDatabase.Migrations
 {
     [DbContext(typeof(BankingContext))]
-    partial class BankingContextModelSnapshot : ModelSnapshot
+    [Migration("20220201194120_AddAttributeForPKCards")]
+    partial class AddAttributeForPKCards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,8 +39,8 @@ namespace BankingSystem.EFDatabase.Migrations
                     b.Property<bool>("IsBlocked")
                         .HasColumnType("bit");
 
-                    b.Property<double>("Sum")
-                        .HasColumnType("float");
+                    b.Property<int>("Sum")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -76,8 +78,8 @@ namespace BankingSystem.EFDatabase.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.Property<double?>("WithDrawalSum")
-                        .HasColumnType("float");
+                    b.Property<int?>("WithDrawalSum")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

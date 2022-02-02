@@ -16,8 +16,8 @@ namespace BankingSystem.EFDatabase.Data
 
         }
 
-        DbSet<CardInfo> Cards { get; set; }
-        DbSet<Operation> Operations { get; set; }
-        DbSet<OperationDetail> OperationDetails { get; set; }
+       public DbSet<CardInfo> Cards { get; set; }
+       public DbSet<Operation> Operations { get; set; }
+       public DbSet<OperationDetail> OperationDetails { get; set; }
     }
 }
