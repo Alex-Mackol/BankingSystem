@@ -3,6 +3,7 @@ using BankingSystem.EFDatabase.Interface;
 using BankingSystem.EFDatabase.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,10 +30,24 @@ namespace BankingSystem
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IDbCRUD, BankingBase>();
+            services.AddScoped<IDbMethods, BankingBase>();
             //services.AddSingleton<IUserFactory, UserFactory>();
             services.AddDbContext<BankingContext>(options => options.UseSqlServer(Configuration["Default:ConnectionString"]));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => false;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +69,7 @@ namespace BankingSystem
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
