@@ -1,18 +1,18 @@
 ﻿@model BankingModels.Model.CardInfo
 
 @{
-    ViewData["Title"] = "Страница ввода";
+    ViewData["Title"] = "Проверка пин кода";
 }
-
-<div class="text-center">
-    <div class="row centerDiv">
-            <form asp-action="Index" asp-controller="Home" asp-anti-forgery="true" method="post">
+    <h4>Номер карты: @Html.DisplayFor(model => model.CardNumber)</h4>
+    <hr />
+   <div class="row text-center centerDiv">
+            <form asp-action="CheckPinCode" asp-controller="Home" asp-anti-forgery="true" method="post">
                 <div class="validation" asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div>
                     <div class="form-group">
-                         <label asp-for="CardNumber" class="control-label">Введите номер карты</label>
-                         <input maxlength="19" pattern="[0-9]*+" id="cardNumber" asp-for="CardNumber" class="form-control" />
-                         <span asp-validation-for="CardNumber" class="text-danger"></span>
+                         <label asp-for="CardPinCode" class="control-label">Введите пинкод карты</label>
+                         <input id="cardPinCode" asp-for="CardPinCode" class="form-control" />
+                         <span asp-validation-for="CardPinCode" class="text-danger"></span>
                     </div>
                     
                    <div>
@@ -30,14 +30,11 @@
                       </table>
                      </div>
 
+
                     <div class="form-group">
-                         <input type="button" id="clearCardButton" value="Очистить" class="btn btn-primary btnClear" />
+                         <input type="button" id="clearPinButton" value="Очистить" class="btn btn-primary btnClear" />
                         <input type="submit"  value="Ок" class="btn btn-primary" />
                     </div>
                 </div>
-            </form>
-    </div>
-    
-    
+                </form>
 </div>
-
