@@ -11,11 +11,9 @@ namespace BankingModels.Model
     public class OperationDetail : IOperationDetail
     {
         public int Id { get; set; }
-        //[ForeignKey("CardInfoKey")]
         public CardInfo Card{ get; set; }
-       // [ForeignKey("OperationKey")]
         public Operation Operation { get; set; }
         public DateTime Time { get; set; }
-        public int? WithDrawalSum { get; set; }
+        public double WithDrawalSum { get; set; } = 0;
     }
 }
