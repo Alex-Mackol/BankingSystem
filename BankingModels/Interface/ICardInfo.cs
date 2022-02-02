@@ -11,7 +11,7 @@ namespace BankingModels.Interface
         int Id { get; set; }
         string CardNumber { get; set; }
         string CardPinCode { get; set; }
-        int Sum { get; set; }
+        double Sum { get; set; }
         bool IsBlocked { get; set; }
 
     }

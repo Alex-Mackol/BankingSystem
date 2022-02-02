@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BankingModels.Interface
 {
-    internal interface IOperationDetail  {
+    public interface IOperationDetail  {
         int Id { get; set; }
         DateTime Time { get; set; }
-        int? WithDrawalSum { get; set; }
+        double WithDrawalSum { get; set; }
     }
 }

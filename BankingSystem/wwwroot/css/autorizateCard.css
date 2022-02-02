@@ -1,0 +1,14 @@
+﻿.tableKeyboard {
+    width: 300px;
+    height: 300px;
+}
+.btnKeyboard {
+    width: 100%;
+    height: 90px;
+    font-size: large;
+}
+
+td {
+    padding: 5px;
+}
+

@@ -1,0 +1,19 @@
+﻿@*@page*@
+@{
+    ViewData["Title"] = "Стараница ошибок";
+}
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<div class ="text-center">
+<h4>@ViewBag.ExeptionMassege</h4>
+    @if (@ViewBag.ControllerName == "Home")
+    {
+        <a asp-controller="Home"  asp-action="Index" class="btn btn-primary">Назад</a>
+    }
+    else
+    {
+        <a asp-controller="Operation"  asp-action="Index" class="btn btn-primary">Назад</a>
+    }
+</div>

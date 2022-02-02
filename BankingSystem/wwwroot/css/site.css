@@ -69,3 +69,60 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*make dive center*/
+.centerDiv{
+    align-content:center;
+    margin-left: 35%;
+}
+
+/*Button style*/
+.btnOperations {
+    display: inline-block;
+    padding: 0 24px;
+    margin: 0 15px 15px 0;
+    border: none;
+    border-radius: 3px;
+    height: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align:center;
+    color: black;
+    background-color: #fff;
+    touch-action: manipulation;
+    transition: box-shadow .18s ease-out,background .18s ease-out,color .18s ease-out;
+}
+
+    .btnOperations:focus-visible {
+        box-shadow: 0 0 0 3px lightskyblue;
+    }
+
+    .btnOperations:hover {
+        box-shadow: 0 1px 1px 0 #cfcfcf, 0 2px 5px 0 #cfcfcf;
+    }
+
+    .btnOperations:active {
+        background-color: #efefef !important;
+    }
+
+    .btnOperations:disabled {
+        background-color: #eee;
+        color: #444;
+        pointer-events: none;
+    }
+    a{
+        text-decoration:none;
+    }
+
+.btnsDivOperation{
+    display:flex;
+    flex-direction:column;
+    margin: 20px;
+}
+
+.btnClear{
+    background-color: transparent;
+    color: black;
+}
+
