@@ -5,22 +5,29 @@
 
 //alert"Hello");
 
-let cardNumberId = document.getElementById('cardNumber'),
+var cardNumberId = document.querySelector('.form-control'),
     btnsKeyboard = document.querySelectorAll('.btnKeyboard');
 
-alert(cardNumberId);
-alert(btnsKeyboard);
+const keychars = [48,49,50,51,52,53,54,55,56,57]
 
 btnsKeyboard.forEach(function (btn) {
-    // Вешаем событие клик
     btn.addEventListener('click', function (e) {
-        alert('Button clicked' + e.target.classList);
+        cardNumberId.value += btn.textContent;
     })
+    //btn.addEventListener('keyup', function (e) {
+    //    cardNumberId.;
+    //})
 });
-alert("");
 
-//btnsKeyboard.addEventListener('click', event => {
-//    const target = event.target;
-
-//    cardNumber.textContent += target.item.textContent;
+document.querySelector(".btnClear").onclick = function (e) {
+    cardNumberId.value = "";
+}
+//document.getElementById("clearPinButton").onclick = function (e) {
+//    cardNumberId.value = "";
+//}
+//btnsKeyboard.forEach(function (btn,i) {
+//    btn.addEventListener('click', function (e) {
+//        btn.setAttribute(data, keychars[i]);
+//    })
 //});
+
